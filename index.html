@@ -147,6 +147,145 @@
 
     
     <article
+  id="post-serverstatus"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/08/17/serverstatus/"
+    >serverstatus</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/08/17/serverstatus/" class="article-date">
+  <time datetime="2020-08-17T08:32:08.653Z" itemprop="datePublished">2020-08-17</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <?php
+
+$SERVER_IP = "dx1.flserver.club"; //IP
+$SERVER_PORT = "25565"; //端口
+
+$SHOW_FAVICON = "on"; //"off" / "on"
+
+$TITLE = "Mc.Falling Light";
+$TITLE_BLOCK_ONE = "信息";
+$TITLE_BLOCK_TWO = "玩家";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$ping = json_decode(file_get_contents('https://api.cdcp.pw:4443/ping/serverping.php?ip=' . $SERVER_IP . '&port=' . $SERVER_PORT . ''), true);
+$status = $ping['status'];
+
+if($status == 'online') { 
+        $version = $ping['version'];
+        $status = $ping['status'];
+        $online = $ping['online'];
+        $max = $ping['max'];
+        $motd = $ping['motd'];
+        $favicon = $ping['favicon'];
+}
+?>
+
+<!DOCTYPE html>
+<html>
+        <head>
+        <meta charset="utf-8">
+        <title>服务器状态检查</title>
+  <meta name="generator" content="hexo-theme-ayer">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+            <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <script language="javascript">
+                   jQuery(document).ready(function(){
+                         $("[rel='tooltip']").tooltip();
+             });
+                </script>
+            <style>
+            /*Custom CSS Overrides*/
+            body {
+                      font-family: 'Lato', sans-serif !important;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="container">
+        <h1><?php echo htmlspecialchars($TITLE); ?></h1><hr>       
+                <div class="row">
+                        <div class="col-md-4">
+                                <h3><?php echo htmlspecialchars($TITLE_BLOCK_ONE); ?></h3>
+                                <table class="table table-striped">
+                                        <tbody>
+                                        <?php if($status == 'online') { ?>
+                                                <tr>
+                                                        <td><b>版本</b></td>
+                                                        <td><?php echo $version; ?></td>
+                                                </tr>
+                                        <?php } ?>
+                                        <?php if($status == 'online') { ?>
+                                                <tr>
+                                                        <td><b>玩家</b></td>
+                                                        <td><?php echo "".$online." / ".$max."";?></td>
+                                                </tr>
+                                        <?php } ?>
+                                                <tr>
+                                                        <td><b>状态</b></td>
+                                                        <td><?php if($status == 'online') { echo "<i class="fa fa-check-circle"></i> 服务器连接正常！"; } else { echo "<i class="fa fa-times-circle"></i> 服务器连接失败！";}?></td>
+                                                </tr>
+                                        <?php if($status == 'online') { ?>
+                                        <?php if(!empty($motd)) { ?>
+                                         <?php if ($SHOW_FAVICON == "on") { ?>
+                                                <tr>
+                                                        <td><b>图标</b></td>
+                                                        <td><img src='<?php echo $favicon; ?>' width="64px" height="64px" style="float:left;"/></td>
+                                                </tr>
+                                        <?php } ?>
+                                        <?php } ?>
+                                        <?php } ?>
+                                                <tr>
+                                                        <td><b>MOtd</b></td>
+                                                        <td><?php echo "".$motd."";?></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+        </div>
+        </body>
+</html> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
   id="post-loaftown-build-activity200727"
   class="article article-type-post"
   itemscope
