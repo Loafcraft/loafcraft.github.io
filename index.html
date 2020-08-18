@@ -513,6 +513,122 @@
 </article>
 
     
+    <article
+  id="post-serverstatus"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/01/serverstatus/"
+    >服务器状态</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/01/01/serverstatus/" class="article-date">
+  <time datetime="2019-12-31T16:00:00.000Z" itemprop="datePublished">2020-01-01</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>每5分钟更新一次数据<br><img src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Loafcraft%E7%8A%B6%E6%80%81&query=online&url=https%3A%2F%2Fmcapi.us%2Fserver%2Fstatus%3Fip%3D124.70.135.254" alt=""><br><img src="https://img.shields.io/badge/dynamic/json?color=629cf8&label=%E5%BD%93%E5%89%8D%E5%9C%A8%E7%BA%BF&query=players.now&suffix=%E4%BA%BA&url=https%3A%2F%2Fmcapi.us%2Fserver%2Fstatus%3Fip%3D124.70.135.254" alt=""><br><img src="https://img.shields.io/badge/dynamic/json?color=yellow&label=%E6%9C%80%E5%A4%A7%E5%9C%A8%E7%BA%BF&query=players.max&suffix=%E4%BA%BA&url=https%3A%2F%2Fmcapi.us%2Fserver%2Fstatus%3Fip%3D124.70.135.254" alt=""><br><img src="https://img.shields.io/badge/dynamic/json?color=red&label=%E5%BD%93%E5%89%8D%E7%89%88%E6%9C%AC&query=server.name&url=https%3A%2F%2Fmcapi.us%2Fserver%2Fstatus%3Fip%3D124.70.135.254" alt=""></p>
+<html>
+<head>
+<meta charset="utf-8">
+<title>显示当前时间 - 原生javascript</title>
+  <meta name="generator" content="hexo-theme-ayer">
+<script type="text/javascript" language="javascript">    
+function show_cur_times(){    
+//获取当前日期    
+var date_time = new Date();    
+//定义星期    
+var week;    
+//switch判断    
+switch (date_time.getDay()){    
+case 1: week="星期一"; break;    
+case 2: week="星期二"; break;    
+case 3: week="星期三"; break;    
+case 4: week="星期四"; break;    
+case 5: week="星期五"; break;    
+case 6: week="星期六"; break;    
+default:week="星期天"; break;    
+}    
+//年    
+var year = date_time.getFullYear();    
+     //判断小于10，前面补0    
+if(year<10){    
+     year="0"+year;    
+}    
+//月    
+var month = date_time.getMonth()+1;    
+     //判断小于10，前面补0    
+if(month<10){    
+month="0"+month;    
+}    
+//日    
+var day = date_time.getDate();    
+     //判断小于10，前面补0    
+if(day<10){    
+     day="0"+day;    
+}    
+//时    
+var hours =date_time.getHours();    
+     //判断小于10，前面补0    
+if(hours<10){    
+     hours="0"+hours;    
+}    
+//分    
+var minutes =date_time.getMinutes();    
+     //判断小于10，前面补0    
+if(minutes<10){    
+     minutes="0"+minutes;    
+}    
+//秒    
+var seconds=date_time.getSeconds();    
+     //判断小于10，前面补0    
+if(seconds<10){    
+     seconds="0"+seconds;    
+}    
+//拼接年月日时分秒    
+var date_str = year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+" "+week;    
+//显示在id为showtimes的容器里    
+document.getElementById("showtimes").innerHTML= date_str;    
+}    
+//设置1秒调用一次show_cur_times函数    
+setInterval("show_cur_times()",100);    
+</script>
+</head>
+<body>
+当前时间：<p id="showtimes"></p>
+</body>
+</html> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
   </article>
   
 
@@ -595,7 +711,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/document/LoafcraftServerStatus">服务器状态</a>
+      <a class="nav-item-link" href="/2020/01/01/LoafcraftServerStatus">服务器状态</a>
     </li>
     
     <li class="nav-item">
